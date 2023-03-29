@@ -16,7 +16,7 @@ def _test_model(model, input_shape, output_sequence_length, french_vocab_size):
         'Wrong output shape. Found output shape {} using parameters output_sequence_length={} and french_vocab_size={}'\
             .format(model.output_shape, output_sequence_length, french_vocab_size)
 
-    assert model.compiled_loss._get_loss_object(model.compiled_loss._losses).fn > 0,\
+    assert len(model.loss) > 0,\
         'No loss function set.  Apply the `compile` function to the model.'
 
     assert sparse_categorical_crossentropy in model.loss_functions,\
