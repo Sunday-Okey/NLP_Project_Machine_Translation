@@ -19,8 +19,8 @@ def _test_model(model, input_shape, output_sequence_length, french_vocab_size):
     assert model.loss is not None, 'No loss function set. Apply the `compile` function to the model.'
 
 
-    assert sparse_categorical_crossentropy in model.loss_functions,\
-        'Not using `sparse_categorical_crossentropy` function for loss.'
+    assert 'sparse_categorical_crossentropy' in model.loss.__name__, 'Not using `sparse_categorical_crossentropy` function for loss.'
+
 
 
 def test_tokenize(tokenize):
