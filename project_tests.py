@@ -7,7 +7,8 @@ from keras.utils import to_categorical
 
 def _test_model(model, input_shape, output_sequence_length, french_vocab_size):
     if isinstance(model, Sequential):
-        model = model.compiled_loss._get_loss_object(model.compiled_loss._losses).fn
+        model = model.model
+#         model = model.compiled_loss._get_loss_object(model.compiled_loss._losses).fn
 
     assert model.input_shape == (None, *input_shape[1:]),\
         'Wrong input shape. Found input shape {} using parameter input_shape={}'.format(model.input_shape, input_shape)
